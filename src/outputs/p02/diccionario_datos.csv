@@ -1,0 +1,48 @@
+﻿columna,dtype_pandas,tipo_estadistico,nulos,pct_nulos,valores_unicos,minimo,maximo,rango,media,categories
+record_id,str,identificador,0,0.0,204000,REC_0000001,REC_0204000,,,
+city_zone,str,categorica_nominal,0,0.0,6,Downtown Core,Tech Park,,,Downtown Core (22.0%); Financial District (24.0%); Industrial East (8.0%); Residential West (9.0%); Suburban North (26.0%); Tech Park (11.0%)
+road_id,str,identificador,0,0.0,94,RD_100,RD_997,,,
+intersection_id,str,identificador,0,0.0,100,INT_001,INT_100,,,
+latitude,float64,geografica,0,0.0,100,40.636691,40.790642,0.15395099999999928,40.7162,
+longitude,float64,geografica,0,0.0,100,-74.083673,-73.928036,0.1556369999999987,-74.0049,
+road_type,str,categorica_nominal,0,0.0,4,Arterial,Local Street,,,Arterial (41.0%); Collector (28.0%); Highway (17.0%); Local Street (14.0%)
+lanes,int64,discreta,0,0.0,3,2,4,2,2.75,2 (42.0%); 3 (41.0%); 4 (17.0%)
+speed_limit,int64,discreta,0,0.0,3,40,90,50,56.7,40 (42.0%); 60 (41.0%); 90 (17.0%)
+vehicle_count,int64,discreta,0,0.0,3058,54,3162,3108,749.5859,3058 valores distintos
+average_speed,float64,continua,0,0.0,851,5.0,90.0,85.0,42.2356,
+heavy_vehicle_count,int64,discreta,0,0.0,246,1,246,245,36.9694,246 valores distintos
+motorcycle_count,int64,discreta,0,0.0,462,3,468,465,74.4783,462 valores distintos
+public_transport_count,int64,discreta,0,0.0,157,0,156,156,21.96,157 valores distintos
+traffic_density,float64,continua,0,0.0,3161,9.0,378.5,369.5,90.6604,
+queue_length,float64,continua,0,0.0,9712,0.0,10111.6,10111.6,121.4707,
+average_wait_time,float64,continua,0,0.0,1855,0.0,1174.5,1174.5,12.1498,
+timestamp,datetime64[us],temporal,0,0.0,2040,2026-01-01 00:00:00,2026-03-26 23:00:00,84 days 23:00:00,,
+hour,int64,discreta_ciclica,0,0.0,24,0,23,23,11.5,24 valores distintos
+day_of_week,int64,discreta_ciclica,0,0.0,7,0,6,6,3.0,0 (14.1%); 1 (14.1%); 2 (14.1%); 3 (15.3%); 4 (14.1%); 5 (14.1%); 6 (14.1%)
+is_weekend,int64,binaria,0,0.0,2,0,1,1,0.2824,0 (71.8%); 1 (28.2%)
+is_holiday,int64,binaria,0,0.0,2,0,1,1,0.0296,0 (97.0%); 1 (3.0%)
+rush_hour,int64,binaria,0,0.0,2,0,1,1,0.2093,0 (79.1%); 1 (20.9%)
+peak_period,str,categorica_nominal,0,0.0,5,Evening Peak,Off-Peak,,,Evening Peak (16.7%); Midday (12.5%); Morning Peak (12.5%); Night (33.3%); Off-Peak (25.0%)
+temperature,float64,continua,0,0.0,343,-2.8,33.1,35.9,15.0007,
+rainfall_mm,float64,continua,0,0.0,194,0.0,31.6,31.6,0.3999,
+visibility_km,float64,continua,0,0.0,96,0.5,10.0,9.5,9.5813,
+air_quality_index,int64,discreta,0,0.0,132,20,152,132,72.5175,132 valores distintos
+weather_condition,str,categorica_nominal,0,0.0,4,Clear,Rain,,,Clear (90.0%); Fog (0.1%); Heavy Rain (2.7%); Rain (7.1%)
+nearby_school,int64,binaria,0,0.0,2,0,1,1,0.23,0 (77.0%); 1 (23.0%)
+nearby_hospital,int64,binaria,0,0.0,2,0,1,1,0.15,0 (85.0%); 1 (15.0%)
+nearby_market,int64,binaria,0,0.0,2,0,1,1,0.44,0 (56.0%); 1 (44.0%)
+construction_activity,int64,binaria,0,0.0,2,0,1,1,0.0795,0 (92.0%); 1 (8.0%)
+road_condition,str,categorica_ordinal,0,0.0,3,Good,Wet,,,Good (87.0%); Poor (8.0%); Wet (5.1%)
+parking_occupancy,float64,continua,0,0.0,951,5.0,100.0,95.0,40.7102,
+public_event,int64,binaria,0,0.0,2,0,1,1,0.0393,0 (96.1%); 1 (3.9%)
+accident_reported,int64,binaria,0,0.0,2,0,1,1,0.0198,0 (98.0%); 1 (2.0%)
+traffic_camera_count,int64,discreta,0,0.0,4,1,4,3,2.37,1 (30.0%); 2 (25.0%); 3 (23.0%); 4 (22.0%)
+iot_sensor_health,str,categorica_ordinal,0,0.0,2,Degraded,Optimal,,,Degraded (7.0%); Optimal (93.0%)
+signal_cycle_seconds,int64,discreta,0,0.0,2,60,120,60,75.1741,60 (74.7%); 120 (25.3%)
+green_light_duration,int64,discreta,0,0.0,26,18,84,66,39.0708,26 valores distintos
+emergency_vehicle_detected,int64,binaria,0,0.0,2,0,1,1,0.02,0 (98.0%); 1 (2.0%)
+traffic_flow_rate,float64,discreta,0,0.0,3058,54.0,3162.0,3108.0,749.5859,3058 valores distintos
+congestion_score,float64,continua,0,0.0,942,5.4,100.0,94.6,50.0076,
+emission_estimate,float64,continua,0,0.0,60984,12.74,9717.22,9704.48,257.4169,
+fuel_waste_estimate,float64,continua,0,0.0,33633,2.71,4066.07,4063.36,72.4964,
+congestion_level,str,categorica_ordinal,0,0.0,4,High,Severe,,,High (7.3%); Low (49.8%); Moderate (7.8%); Severe (35.0%)
