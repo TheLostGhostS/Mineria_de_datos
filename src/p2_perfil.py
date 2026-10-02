@@ -10,7 +10,7 @@ pd.set_option("display.max_rows", None)
 pd.set_option("display.max_colwidth", 70)
 
 
-DATOS_PROV = {
+KNOWN_DATATYPES = {
     "record_id": "identifier",
     "road_id": "identifier",
     "intersection_id": "identifier",
@@ -49,8 +49,8 @@ CATEGORICOS = {"nominal", "ordinal", "binary"}
 MAX_VALORES_LISTADOS = 12   
 
 def get_statistic_type(col: str, s: pd.Series) -> str:
-    if col in DATOS_PROV:
-        return DATOS_PROV[col]
+    if col in KNOWN_DATATYPES:
+        return KNOWN_DATATYPES[col]
     if pd.api.types.is_datetime64_any_dtype(s):
         return "temporal"
     if pd.api.types.is_numeric_dtype(s):
