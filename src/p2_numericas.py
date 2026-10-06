@@ -12,7 +12,7 @@ pd.set_option("display.max_rows", None)
 pd.set_option("display.float_format", lambda x: f"{x:,.3f}")
 
 # No promediar
-EXCLUIR = {"hour", "day_of_week", "latitude", "longitude", "lanes"}
+EXCLUIR = {"hour", "day_of_week", "latitude", "longitude", "lanes", "traffic_flow_rate"}
 
 def get_numerics(df: pd.DataFrame) -> list[str]:
     """Numéricas no binarias y fuera de EXCLUIR."""
