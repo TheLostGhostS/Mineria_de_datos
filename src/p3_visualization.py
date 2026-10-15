@@ -149,7 +149,9 @@ def draw_hist(df, spec):
         ax.hist(positive, bins=bins, color=BLUE, edgecolor=SURFACE, linewidth=0.5)
         ax.set_xscale("log")
     else:
-        bins = int(np.ceil(1 + np.log2(len(s))))   # regla de Sturges, igual que en la practica 2
+        # regla de Sturges 
+        # como en la practica 2
+        bins = int(np.ceil(1 + np.log2(len(s))))   
         ax.hist(s, bins=bins, color=BLUE, edgecolor=SURFACE, linewidth=0.5)
     ax.axvline(s.median(), color=INK_2, linestyle="--", linewidth=1.2)
     ax.text(s.median(), ax.get_ylim()[1], f" mediana = {s.median():,.1f}", va="top",
