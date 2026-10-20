@@ -36,7 +36,16 @@ MODELS = [
      "title": "Conteo de vehiculos -> longitud de cola"},
     {"id": "M2_log", "x": "vehicle_count", "y": "queue_length", "log_y": True,
      "title": "Conteo de vehiculos -> log(1 + longitud de cola)"},
+    # hipotesis: la cola depende de la demanda por carril (vehiculos / capacidad de la via)
+    {"id": "M3", "x": "vehicles_per_lane", "y": "queue_length",
+     "title": "Vehiculos por carril -> longitud de cola"},
+    {"id": "M3_log", "x": "vehicles_per_lane", "y": "queue_length", "log_y": True,
+     "title": "Vehiculos por carril -> log(1 + longitud de cola)"},
 ]
+
+# Columnas derivadas (nombre: expresion de DataFrame.eval). Se crean despues del
+# ranking de correlaciones para no contaminarlo.
+DERIVED = {"vehicles_per_lane": "vehicle_count / lanes"}
 
 # misma paleta
 SURFACE, INK, INK_2, GRID, BLUE, RED = "#fcfcfb", "#0b0b0b", "#52514e", "#e3e2de", "#2a78d6", "#e34948"
@@ -174,8 +183,15 @@ def main():
     cols = numeric_columns(df)
     ranking = correlation_ranking(df, cols)
     ranking.to_csv(out / "correlation_pairs.csv", index=False, encoding="utf-8-sig")
-    print(f"Primeros {TOP_PAIRS_SHOWN} pares de {len(ranking)} pares; hubo {NEAR_DUPLICATE_R} pares casi identicos")
+    print(f"Primeros {TOP_PAIRS_SHOWN} pares de {len(ranking)} pares; hubo {int(ranking['near_duplicate'].sum())} pares casi identicos (|r| >= {NEAR_DUPLICATE_R})")
     print(ranking.head(TOP_PAIRS_SHOWN).to_string(index=False))
+
+    for name, expr in DERIVED.items():
+        try:
+            df[name] = df.eval(expr)
+            print(f"\nColumna derivada creada: {name} = {expr}")
+        except Exception as e:
+            print(f"\nNo se pudo crear {name} ({expr}): {e}")
 
     # Modelos
     summary = []
