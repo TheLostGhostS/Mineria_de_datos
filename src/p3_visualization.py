@@ -222,9 +222,11 @@ def draw_heatmap(df, spec):
     is_int_id = [pd.api.types.is_integer_dtype(num[c]) and num[c].nunique() == len(num) for c in num.columns]
     num = num.loc[:, (num.nunique() > 2).values & ~np.array(is_int_id)]  # fuera binarias e ids enteros
     num = num.drop(columns=[c for c in ("hour", "day_of_week") if c in num.columns])
-    # quita columnas identicas
-    dup = [b for i, a in enumerate(num.columns) for b in num.columns[i + 1:] if num[a].equals(num[b])]
+    
+    dup = [b for i, a in enumerate(num.columns) for b in num.columns[i + 1:] if np.array_equal(num[a].to_numpy(), num[b].to_numpy())]
     num = num.drop(columns=sorted(set(dup)))
+    if dup:
+        print(f"    (columnas duplicadas: {sorted(set(dup))})")
     corr = num.corr()
     n = len(corr)
     fig, ax = plt.subplots(figsize=(max(8, n * 0.55), max(6.5, n * 0.5)))
